@@ -9,6 +9,17 @@
     // for Map<Integer, Integer>
     Map<Integer, Integer> frequencyMap = Arrays.stream(numbers).boxed().collect(Collectors.groupingBy(n -> n,
                                                 Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
+
+---
+### 2.  String to freq Map
+    Map<Character, Long> frequencyMap = input.chars().mapToObj(c -> (char) c)
+                                                 .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+    // for Map<Character, Integer>
+     Map<Character, Integer> frequencyMap = input.chars().mapToObj(c -> (char) c).collect(Collectors.toMap(
+                                                        c -> c,
+                                                        c -> 1,
+                                                        (existingValue, newValue) -> existingValue + newValue));
+    
                                                 
 
     
