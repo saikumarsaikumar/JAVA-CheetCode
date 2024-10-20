@@ -19,6 +19,13 @@
                                                         c -> c,
                                                         c -> 1,
                                                         (existingValue, newValue) -> existingValue + newValue));
+---
+### 3.  Sort a String
+     String sortedString = input.chars()
+                                .mapToObj(c -> (char) c)  // Convert int to char
+                                .sorted()                 // Sort the characters
+                                .map(String::valueOf)      // Convert each character to a string
+                                .collect(Collectors.joining());
     
                                                 
 
